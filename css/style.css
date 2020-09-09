@@ -1,0 +1,945 @@
+@charset "UTF-8";
+
+/*Обнуление*/
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+:focus,
+:active {
+    outline: none;
+}
+
+a:focus,
+a:active {
+    outline: none;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+nav,
+footer,
+header,
+aside {
+    display: block;
+}
+
+input,
+button,
+textarea {
+    font-family: inherit;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+/*--------------------*/
+
+/* Main */
+
+.main {
+    background: url(../images/main-bg.png) no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 88px;
+    padding: 10px 15px 10px 60px;
+    border-bottom: 1px solid rgba(255,255,255,0.6);
+}
+.header__mobile {
+    display: none;
+}
+.header__burger {
+    display: none;
+}
+.header-active {
+    background-color: #000;
+}
+.header__nav ul {
+    display: flex;
+}
+.header__nav ul li {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    border-right: 1px solid rgba(255, 255, 255, 0.651);
+}
+.header__nav ul a {
+    margin-right: 20px;
+    margin-left: 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+    line-height: 1.125;
+    background: linear-gradient(rgba(255,255,255,1), rgba(255, 255, 255, 0.781));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Philosopher', sans-serif;
+    transition: 0.2;
+}
+.header__nav ul a:hover {
+    background: linear-gradient(rgb(153, 127, 127), rgba(224, 220, 220, 0.781));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.header__lang {
+        border-style: solid;
+        border-width: 1px;
+        border-color: #675e75;
+        color: #fff;
+        border-radius: 10px;
+        font-family: 'Philosopher', sans-serif;
+        background-color: rgb(51, 49, 49);
+        width: 50px;
+        height: 35px;
+        line-height: 33px;
+        text-align: center;
+        position: relative;
+}
+.header__lang--block {
+    cursor: pointer;
+}
+.header__lang--block:hover span {
+    color: red;
+}
+.header__lang::after {
+    position: absolute;
+    content: '';
+    width: 1px;
+    height: 60px;
+    top: -15px;
+    left: -15px;
+    background-color: rgba(255, 255, 255, 0.651);
+}
+.header__selectLang {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    top: 100%;
+    right: 2%;
+    transition: 0.5s;
+    padding: 20px 10px 20px 10px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: .55s opacity, .55s visibility;
+}
+.header__selectLang ul li {
+    margin-bottom: 20px;
+}
+.header__selectLang ul li a {
+    color: #fff;
+    font-size: 13px;
+    font-family: 'Philosopher', sans-serif;
+    text-transform: uppercase;
+}
+.header__selectLang ul li a:hover {
+    text-decoration: underline;
+}
+.header__selectLang.active {
+    opacity: 1;
+    visibility: visible;
+}
+.header__lang--blockImg.active {
+    transition: 0.2s;
+    transform: rotate(180deg);
+}
+.main {
+    position: relative;
+}
+
+.main__video {
+    position: relative;
+    max-width: 450px;
+}
+.main__video a {
+    position: absolute;
+    top: 38%;
+    left: 44%;
+}
+.main__video p {
+    position: absolute;
+    bottom: 45px;
+    left: 30px;
+    font-family: 'Philosopher', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    background: linear-gradient(to bottom, #f9e600, #6f156c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.main__footer {
+    background: rgb(000, 000, 000, 0.47);
+    height: 35px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/* Slider */
+
+.slider__items {
+
+}
+
+.slider {
+    position: relative;
+    height: 100vh;
+}
+.slider .slick-dots {
+    position: absolute;
+    bottom: 1%;
+    left: 67%;
+    display: flex;
+    z-index: 1;
+}
+.slider .slick-dots li {
+    margin: 0px 5px;
+    z-index: 3;
+}
+.slider .slick-dots button {
+    font-size: 0;
+    width: 20px;
+    height: 20px;
+    background: url(../images/slider-icon-2.png) 0 0 no-repeat;
+}
+.slider .slick-dots button:hover {
+    transition: 0.2s;
+    transform: scale(1.1);
+}
+.slider .slick-dots li.slick-active button {
+    background: url(../images/slider-icon-1.png) 0 0 no-repeat;
+}
+.slick-list {
+    overflow: hidden;
+}
+.slick-track {
+    display: flex;
+    position: absolute;
+    bottom: 6%;
+    left: 40%;
+}
+
+/* Menu */
+
+.menu {
+    background-color: #2a2726;
+}
+.menu__info {
+    display: flex;
+    margin: 0 auto;
+    max-width: 1170px;
+}
+.menu__info--block {
+    transition: 0.2s;
+}
+.menu__info--block:hover {
+    font-size: 22px;
+}
+.menu__info--block1 {
+    background: url(../images/bg-menu1.png) no-repeat;
+    width: 290px;
+    text-align: right;
+    font-size: 24px;
+    font-family: 'Philosopher', sans-serif;
+    color: rgb(249, 179, 69);
+    font-weight: bold;
+    line-height: 88px;      
+    text-shadow: -1px -2px 12px rgba(249, 179, 69, 1);
+}
+.menu__info--block1 span {
+    margin-right: 35px;
+}
+.menu__info--block2 {
+    background: url(../images/bg-menu2.png) no-repeat;
+    width: 290px;
+    text-align: right;
+    font-size: 24px;
+    font-family: 'Philosopher', sans-serif;
+    color: rgb(200, 244, 93);
+    font-weight: bold;
+    line-height: 88px;      
+    text-shadow: -1px -2px 12px rgba(200, 244, 93, 1);
+}
+.menu__info--block2 span {
+    margin-right: 15px;
+}
+.menu__info--block3 {
+    background: url(../images/bg-menu3.png) no-repeat;
+    width: 290px;
+    text-align: right;
+    font-size: 24px;
+    font-family: 'Philosopher', sans-serif;
+    color: rgb(213, 178, 94);
+    font-weight: bold;
+    line-height: 40px;      
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.21);      
+}
+.menu__info--mrOne {
+    margin-right: 60px;
+}
+.menu__info--mrSec {
+    margin-right: 5px;
+}
+.menu__info--mrThree {
+    margin-right: 88px;
+}
+.menu__info--block4 {
+    background: url(../images/bg-menu4.png) no-repeat;
+    width: 290px;
+    text-align: right;
+    font-size: 24px;
+    font-family: 'Philosopher', sans-serif;
+    color: rgb(88, 158, 254);
+    font-weight: bold;
+    line-height: 40px;      
+    text-shadow: 0px 1px 1px rgba(27, 184, 246);
+}
+
+/* Info */
+
+.info {
+    background: url(../images/bg-info.png) no-repeat;
+    background-size: cover;
+}
+.info__container {
+    margin: 0 auto;
+    padding: 45px 0;
+    display: flex;
+    justify-content: space-around;
+    max-width: 1050px;
+}
+.info__block {
+    width: 510px;
+    background-color: #e9e9e9;
+    padding: 15px 15px 0 20px;
+    border-radius: 5px;
+}
+.info__title {
+    border-bottom: 1px solid #a49371;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.info__title img {
+    margin-right: 10px;
+}
+.info__title {
+    font-size: 24px;
+    color: rgb(84, 84, 84);
+    font-weight: bold;
+    font-family: 'Philosopher', sans-serif;
+}
+.info__item {
+    background-color: #dad9d8;
+    margin-top: 10px;
+    border-radius: 9px;
+    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+}
+.info__item img {
+    object-fit: contain;
+}
+.info__item--block {
+    display: flex;
+}
+.info__item--text {
+    border-bottom: 1px solid #fff;
+    margin: 10px 0 0 10px;
+    padding-bottom: 10px;
+    line-height: 18px;
+}
+.info__item--text h4 {
+    font-size: 14px;
+    font-family: "Arial";
+    color: rgb(103, 89, 72);
+    font-weight: bold;
+}
+.info__item--text p {
+    font-size: 12px;
+    font-family: "Arial";
+    margin-top: 5px;
+    color: rgb(88, 79, 78);
+}
+.info__item--author {
+    font-size: 11px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 5px;
+    margin-top: 10px;
+    padding-bottom: 7px;
+    font-family: "Arial";
+    color: rgb(96, 96, 95);
+    border-bottom: 1px solid #fff;
+}
+.info__item--authorNext a {
+    color: rgb(96, 96, 95);
+    transition: 0.2s;
+}
+.info__item--authorNext a:hover {
+    color: red;
+}
+  
+.info__item--admin {
+    color: red;
+    margin: 0 5px 0 5px;
+}
+.info__item--page {
+    padding: 15px 0 10px 0;
+}
+.info__item--page ul {
+    display: flex;
+    justify-content: center;
+}
+.info__item--page ul a {
+    color: rgb(98, 94, 86);
+    font-size: 11px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.info__item--page ul li:hover a {
+    font-size: 12px;
+    font-weight: 600;
+}
+.info__item--page ul a:focus {
+    font-size: 14px;
+    font-weight: bold;
+    color: #625e56;
+}
+.info__players--num {
+    display: flex;
+    margin-top: 10px;
+    text-align: center;
+}
+.info__players--hordes {
+    background-color: rgb(51, 49, 49); 
+}
+.info__players--alliance {
+    background-color: rgb(51, 49, 49);   
+}
+.info__players--sum h4 {
+    font-size: 41px;
+    font-family: "Philosopher";
+    color: rgb(174, 168, 156);
+    font-weight: bold;
+    position: relative;
+}
+.info__players--sum h4::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    background-color: rgb(174, 168, 156);
+    width: 36px;
+    height: 1px;
+    right: 30px;
+}
+.info__players--sum h4::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    background-color: rgb(174, 168, 156);
+    width: 36px;
+    height: 1px;
+    left: 30px;
+}
+.info__players--sum p {
+    font-size: 19px;
+    font-family: "Philosopher";
+    color: rgb(174, 168, 156);
+    font-weight: bold;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.27);
+    margin-bottom: 10px;
+}
+.info__online {
+    margin: 10px 0;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 16px;
+    font-family: "Philosopher";
+    color: rgb(84, 84, 84);
+    font-weight: bold;
+    border-bottom: 1px dotted;
+}
+.info__online--flex {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.info__online--span {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(194, 194, 194);
+    border-radius: 3px;
+    padding: 3px;
+    background-color: rgb(226, 226, 224);
+}
+.info__online--spanGreen {
+    margin-left: 5px;
+    color: green;
+    text-decoration: underline;
+}
+.info__online--spanDotted {
+    font-size: 12px;
+    font-family: "Roboto";
+    color: rgb(84, 75, 59);
+    text-decoration: underline;
+}
+.info__online--dotted {
+    text-align: right;
+    font-weight: 300;
+}
+.info__top {
+    margin-top: 30px;
+}
+.info__team {
+    padding-bottom: 10px;
+}
+.info__team--items {
+    background: url(../images/team-bg.png) no-repeat;
+}
+.info__team--hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+.info__team--heroRating {
+    margin-left: 40px;
+}
+.info__team--heroGeneral {
+    display: flex;
+}
+.info__team--heroPlace {
+    text-align: center;
+    margin-right: 35px;
+}
+.info__team--hero p {
+    font-size: 12px;
+    font-family: "Roboto";
+    color: rgb(97, 94, 90);
+}
+.info__team--heroPlaceText {
+    font-size: 19px;
+    font-family: "Philosopher";
+    color: rgb(97, 94, 90);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.info__team--heroPlaceNum {
+    font-size: 30px;
+    font-family: "Philosopher";
+    color: rgb(97, 94, 90);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.info__team--heroBlock {
+    padding-top: 3px;
+    margin-bottom: 5px;
+    width: 63px;
+    height: 80px;
+    box-shadow: 6px -3px 23px -8px #131211 inset;
+    background-color: #645d53;
+    text-align: center;
+}
+.info__team--heroBlock img {
+    width: 42px;
+    height: 42px;
+}
+.info__team--heroBlock p {
+    font-size: 11px;
+    font-family: "Roboto";
+    color: rgb(245, 190, 110);   
+}
+.info__item--authorBlock {
+    display: flex;
+    align-items: center;
+}
+.info__item--authorBlock img {
+    margin: 0 5px 0 15px;
+}
+
+/* Social */
+
+.social {
+    background: linear-gradient( rgba(62, 58, 48, 0.8), rgba(0, 0, 0, 0.5) ), url('../images/link-bg.png');
+}
+.social__container {
+    margin: 0 auto;
+    max-width: 545px;
+    text-align: center;
+}
+.social__title {
+    padding: 25px 0 20px 0;
+    font-size: 24px;
+    font-family: "Philosopher";
+    color: rgb(168, 175, 180);
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.27);
+}
+.social__link {
+    padding-bottom: 30px;
+}
+.social__link img {
+    cursor: pointer;
+    margin-right: 30px;
+    filter: grayscale(100%);
+    opacity: 0.3;
+}
+.social__link img:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+/* Rules */
+
+.rules {
+    background-color: #25221e;
+}
+.rules__container {
+    margin: 0 auto;
+    max-width: 1100px;
+    padding-top: 20px;
+}
+.rules__title {
+    margin-bottom: 15px;
+}
+.rules__title h4 {
+    font-size: 24px;
+    font-family: "Philosopher";
+    border-bottom: 1px dotted;
+    max-width: 740px;
+    margin: 0 auto;
+    color: rgb(188, 175, 158);
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.rules__text {
+    background-color: #201e1b;
+    font-size: 14px;
+    font-family: "Roboto";
+    color: rgb(113, 111, 109);
+    margin-bottom: 10px;
+    padding: 10px 10px 20px 10px;
+}
+.rules__sponsor {
+    display: flex;
+    justify-content: space-between;
+}
+.rules__btn button {
+    font-size: 14px;
+    font-family: "Roboto";
+    color: rgb(113, 111, 109);
+    border-radius: 6px;
+    background-color: rgb(37, 34, 30);
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.29);
+    width: 70px;
+    height: 28px;
+}
+.rules__btn button:hover {
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.79);
+    color: #fff;
+    transition: 0.2s;
+}
+
+/* Footer */
+
+.footer {
+    background: url(../images/footer-bg.png) no-repeat;
+    background-size: cover;
+    margin-top: -5px;
+}
+.footer__container {
+    margin: 0 auto;
+    max-width: 1100px;
+}
+.footer__text {
+    text-align: right;
+    padding: 20px 10px 15px 10px;
+    font-size: 12px;
+    font-family: "Roboto";
+    color: rgb(118, 116, 111);
+}
+
+/* Media */
+
+@media (max-width: 1020px) {
+    .header {
+        padding: 10px 15px 10px 10px;
+    }
+    .main__video {
+        right: 20px;
+    }
+    .main__footer--ind {
+        margin-right: 20px;
+    }
+    .menu__info {
+        flex-direction: column;
+        max-width: fit-content;
+    }
+    .menu__info--block {
+        margin-bottom: 10px;
+    }
+    .info__container {
+        display: block;
+        max-width: fit-content;
+    }
+    .info__team {
+        padding-top: 10px;
+    }
+    .info__block {
+        width: auto;
+    }
+    .info__item--block {
+        flex-direction: column;
+        text-align: center;
+    }
+    .info__item {
+        height: auto;
+    }
+    .info__item--text h4 {
+        font-size: 12px;
+    }
+    .info__item--text p {
+        font-size: 10px;
+    }
+    .info__players--num {
+        display: block;
+    }
+    .info__players--sum h4::before {
+        left: 30%;
+    }
+    .info__players--sum h4::after {
+        right: 30%;
+    }
+    .info__team--items {
+        padding: 10px 0;
+        background-size: cover;
+    }
+}
+@media (max-width: 767px) {
+    body.lock {
+        overflow: hidden;
+    }
+    .header__burger {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 20px;
+        z-index: 4;
+    }
+    .header__burger span {
+        position: absolute;
+        background-color: #fff; 
+        width: 100%;
+        height: 2px;
+        left: 0;
+        top: 9px;
+        transition: 0.2s;
+    }
+    .header__burger:before,
+    .header__burger::after {
+        content: '';
+        position: absolute;
+        background-color: #fff;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        transition: 0.2s;
+    }
+    .header__burger:before {
+        top: 0;
+    }
+    .header__burger::after {
+        bottom: 0;
+    }
+    .header__burger.active span {
+        transform: scale(0);
+    }
+    .header__burger.active:before {
+        transform: rotate(45deg);
+        top: 9px;
+    }
+    .header__burger.active:after {
+        transform: rotate(-45deg);
+        bottom: 9px;
+    }
+    .header__mobile {
+        padding: 30px;
+        display: block;
+        position: fixed;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+        transition: 0.2s;
+        background-color: #201e1b;
+    }
+    .header__mobile ul li {
+        margin-bottom: 10px;
+    }
+    .header__mobile .header__mobile--link {
+        color: #fff;
+        font-size: 20px;
+        font-family: 'Philosopher', sans-serif;
+        text-transform: uppercase;
+    }
+    .header__mobile.active {
+        top: 0;
+    }
+    .header__nav {
+        display: none;
+    }
+    .header__selectLang {
+        right: unset;
+    }
+    .header__selectLang ul li a {
+        font-size: 13px;
+    }
+}
+@media (max-width: 720px) {
+    .slick-track {
+        left: 20%;
+    }
+}
+@media (max-width: 540px) {
+    .slick-track {
+        left: 10%;
+    }
+}
+@media (max-width: 500px) {
+    .main__video p {
+        bottom: 48px;
+        left: 70px;
+        font-size: 18px;
+    }
+    .info__team--hero {
+        display: block;
+        max-width: fit-content;
+        margin: 0 auto;
+    }
+    .info__item--author {
+        font-size: 8px;
+    }
+    .info__team--heroPlace {
+        margin-right: 0;
+    }
+    .info__team--heroRating {
+        margin-left: 0;
+    }
+    .info__team--heroGeneralMl {
+        margin-left: 15px;
+    }
+    .info__item--authorNext {
+        text-align: right;
+    }
+    .info__item--authorBlock img {
+        margin: 0 5px 0 5px;
+    }
+    .social__link  {
+        display: flex;
+        justify-content: center;
+    }
+    .social__link a {
+        margin-right: 10px;
+    }
+    .social__link a:last-child {
+        margin-right: 0;
+    }
+    .social__link img {
+        width: 50px;
+        height: 55px;
+    }
+    .social__link img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .rules__title {
+        padding: 10px;
+    }
+    .rules__sponsor {
+        display: block;
+        padding: 20px;
+    }
+    .rules__img img {
+        width: 100%;
+    }
+}
+@media (max-width: 470px) {
+    .info__players--sum h4::before {
+        left: 18%;
+    }
+    .info__players--sum h4::after {
+        right: 18%;
+    }
+    .slider .slick-dots {
+        left: 37%;
+    }
+} 
+@media (max-width: 425px) {
+    .main__video p {
+        bottom: 50px;
+        left: 40px;
+    }
+}
+@media (max-width: 375px) {
+    .main__video p {
+        left: 20px;
+    }
+}
